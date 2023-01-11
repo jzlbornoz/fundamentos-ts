@@ -31,3 +31,19 @@
 - Se crea el directorio dist, en donde se almacenara el resultado de la Transpilacion.
 
 - Para correr el proceso se utiliza el comando: `npx tsc src/*.ts --outDir dist --target es6`.
+
+## tsconfig.json
+
+- Para evitar describir en cada comando la configuracion de la Transpilacion se requiere del archivo tsconfig.json, que se genera automanticamente con una configuracion por defecto usando el comando `npx tsc --init`.
+
+- En este archivo se le indican las configuraciones como outDir y target y se correria usando el comando `npx tsc`.
+
+- Se agrega el siguiente script al package.json, el flag 'watch' se utiliza como un hotreloaded.
+- /package.json
+
+```
+ "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tsc --watch"
+  },
+```
