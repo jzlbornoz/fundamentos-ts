@@ -47,3 +47,17 @@
     "dev": "npx tsc --watch"
   },
 ```
+
+## Types
+
+- Tipos explicitos
+
+```
+const age: number = 20;
+```
+
+- Tipos inferidos
+
+```
+const age = 20;
+```
