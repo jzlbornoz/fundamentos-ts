@@ -94,3 +94,9 @@ const user: [string, number, boolean] = ["Irving", 20, true];
 ```
 let unknowVar: unknown;
 ```
+
+### Never
+
+- Este tipo de dato se utiliza en aquellas funciones que no tienen final en la vida del programa.
+- Un ejemplo de ello es cuando queremos manejar un error o cuando ejecutamos un loop infinito, como por ejemplo una validación de un token de cada x’s segundos, que es una función que se ejecuta constantemente, ya que lanzas la función, esta envía el token lo valida, y comienza el timer para hacer el refresh de ese token, si hay un error lanza una excepción y si no continúa con la validación y el timer…
+
