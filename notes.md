@@ -69,7 +69,7 @@ const age = 20;
 
 ### Enums
 
-Los enums funcionan como listas en las que podemos agregar llaves y valores. Esto lo que nos permite es tener un set de opciones predefinidas, evitando pasar un argumento invalido, ya que solo vamos a tener las opciones dentro del enum. Estos se usan de la siguiente manera
+- Los enums funcionan como listas en las que podemos agregar llaves y valores. Esto lo que nos permite es tener un set de opciones predefinidas, evitando pasar un argumento invalido, ya que solo vamos a tener las opciones dentro del enum. Estos se usan de la siguiente manera
 
 ```
 enum ROLES {
@@ -78,3 +78,13 @@ enum ROLES {
   OWNER = "owner"
 }
 ```
+
+### Tuplas
+
+- Las tuplas nos sirven para hacer un array fuertemente tipado especificando el tipo de dato de cada elemento del array así como la cantidad de elementos. como lo hace useState en react.
+
+```
+const user: [string, number, boolean] = ["Irving", 20, true];
+```
+
+
