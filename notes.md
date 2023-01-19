@@ -100,3 +100,9 @@ let unknowVar: unknown;
 - Este tipo de dato se utiliza en aquellas funciones que no tienen final en la vida del programa.
 - Un ejemplo de ello es cuando queremos manejar un error o cuando ejecutamos un loop infinito, como por ejemplo una validación de un token de cada x’s segundos, que es una función que se ejecuta constantemente, ya que lanzas la función, esta envía el token lo valida, y comienza el timer para hacer el refresh de ese token, si hay un error lanza una excepción y si no continúa con la validación y el timer…
 
+### Overloaded Functions uses
+
+- Uso de sobrecarga de funciones
+  Para realizar la sobrecarga de funciones tenemos simplemente declarar otras funciones con el mismo nombre de la función que tiene la lógica implementada. Dentro de los parámetros de las nuevas funciones vamos a definir el tipo de dato que se va a recibir y además tenemos que aclarar el tipo de dato que se va a retornar con ese parámetro.
+
+- Además, en la función que tiene toda la lógica a sus parámetros podemos colocarle como tipo de dato unknown al igual que su retorno.
