@@ -1,12 +1,12 @@
-import { User } from './user.model';
+import { UserModel } from './user.model';
 
-const usersList: User[] = [];
+const usersList: UserModel[] = [];
 
-const addUser = (data: User) => {
+const addUser = (data: UserModel) => {
   usersList.push(data);
 };
 
-const calcUsersPoints = (userList: User[]): number => {
+const calcUsersPoints = (userList: UserModel[]): number => {
   const res = userList.reduce(
     (total, user) => (user.points ? (total += user.points) : total),
     0
