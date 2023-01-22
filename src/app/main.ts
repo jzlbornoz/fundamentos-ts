@@ -3,7 +3,7 @@ import { ROLES } from './users/user.model';
 import { addProduct, productsList } from './product/product.services';
 import { faker } from '@faker-js/faker';
 
-for (let index = 0; index < 5; index++) {
+for (let index = 0; index < 3; index++) {
   addUser({
     id: faker.datatype.uuid(),
     userName: faker.name.fullName(),
@@ -17,26 +17,10 @@ for (let index = 0; index < 5; index++) {
 
 for (let i = 0; i < 3; i++) {
   addProduct({
-    id: faker.datatype.uuid(),
     name: faker.commerce.product(),
-    createdAt: new Date(),
-    updateAt: new Date(),
-    seller: {
-      id: faker.datatype.uuid(),
-      userName: faker.name.fullName(),
-      createdAt: new Date(),
-      password: faker.internet.password(),
-      points: Math.max(100),
-      role: ROLES.USER,
-      updateAt: new Date(),
-    },
-    category: {
-      id: faker.datatype.uuid(),
-      createdAt: new Date(),
-      updateAt: new Date(),
-      name: faker.commerce.department(),
-    },
     stock: Math.max(100),
+    categoryId: faker.datatype.uuid(),
+    userId: faker.datatype.uuid(),
     sizes: 'S',
   });
 }

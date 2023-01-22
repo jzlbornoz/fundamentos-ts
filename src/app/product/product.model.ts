@@ -5,7 +5,7 @@ import { UserModel } from '../users/user.model';
 export type Sizes = 'S' | 'M' | 'L' | 'XL';
 export interface ProductModel extends BaseModel {
   name: string;
-  seller: UserModel;
+  user: UserModel;
   stock: number;
   sizes?: Sizes;
   category: CategoryModel;

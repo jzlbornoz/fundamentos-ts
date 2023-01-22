@@ -1,4 +1,6 @@
 import { ProductModel } from './product.model';
+import { CreateProductDto } from './product.dto';
+import { faker } from '@faker-js/faker';
 
 type ProductId = string | number;
 
@@ -17,8 +19,28 @@ export const findProductById = (id: ProductId) => {
   return product;
 };
 
-export const addProduct = (data: ProductModel) => {
-  productsList.push(data);
+export const addProduct = (data: CreateProductDto): ProductModel => {
+  const newProduct: ProductModel = {
+    ...data,
+    id: faker.datatype.uuid(),
+    createdAt: new Date(),
+    updateAt: new Date(),
+    category: {
+      id: data.categoryId,
+      name: faker.commerce.department(),
+      createdAt: new Date(),
+      updateAt: new Date(),
+    },
+    user: {
+      id: data.userId,
+      userName: faker.name.fullName(),
+      password: faker.internet.password(),
+      createdAt: new Date(),
+      updateAt: new Date(),
+    },
+  };
+  productsList.push(newProduct);
+  return newProduct;
 };
 
 export const updateProduct = (id: ProductId, data: object) => {

@@ -106,3 +106,34 @@ let unknowVar: unknown;
   Para realizar la sobrecarga de funciones tenemos simplemente declarar otras funciones con el mismo nombre de la función que tiene la lógica implementada. Dentro de los parámetros de las nuevas funciones vamos a definir el tipo de dato que se va a recibir y además tenemos que aclarar el tipo de dato que se va a retornar con ese parámetro.
 
 - Además, en la función que tiene toda la lógica a sus parámetros podemos colocarle como tipo de dato unknown al igual que su retorno.
+
+## Utility Types
+
+### DTOs
+
+- Es una abreviatura para referirnos a Data Transfer Objects u Objeto de Transferencias de datos.
+- Hay momentos particulares en los que nosotros no necesitamos del todo los tipos, es decir, hay parámetros que no hacen falta, por ejemplo, mandarlos al momento de la creación de un objeto, ya que estos son automáticos como el ID o la fecha de creación.
+
+### Omit
+
+```
+import { ProductModel } from './product.model';
+
+interface CreateProductDto
+  extends Omit< ProductModel, 'id' | 'updateAt' | 'createdAt' | 'category' | 'user'> {
+  categoryId: number | string;
+  userId: number | string;
+}
+
+export { CreateProductDto };
+```
+
+### Pick
+
+```
+interface InterfaceName extends Pick<TypeOrInterface, keyToPick1 | ... | keyToPickN> {
+	statements
+}
+
+type typeNameDto = Pick<TypeOrInterface, keyToPick1 | ... | keyToPickN>
+```
