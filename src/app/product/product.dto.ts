@@ -11,4 +11,6 @@ interface CreateProductDto
 
 interface UpdateProductDto extends Partial<CreateProductDto> {}
 
+interface FindProductDto extends Readonly<Partial<ProductModel>> {}
+
 export { CreateProductDto, UpdateProductDto };

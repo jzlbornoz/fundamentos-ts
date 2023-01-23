@@ -161,3 +161,15 @@ interface InterfaceName extends Required<Interface> {
 
 type TypeName = Required<TypeOrInterface>;
 ```
+
+### Readonly
+
+- Con esta propiedad le decimos TypeScript que todos los parámetros solamente sean de lectura, por ende nos pueden ser mutados a lo largo de nuestro programa.
+
+```
+interface InterfaceName extends Readonly<Interface> {
+		statements
+}
+
+type TypeName = Readonly<TypeOrInterface>;
+```
