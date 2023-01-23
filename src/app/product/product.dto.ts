@@ -9,4 +9,6 @@ interface CreateProductDto
   userId: number | string;
 }
 
-export { CreateProductDto };
+interface UpdateProductDto extends Partial<CreateProductDto> {}
+
+export { CreateProductDto, UpdateProductDto };

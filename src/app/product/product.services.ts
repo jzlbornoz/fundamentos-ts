@@ -1,5 +1,5 @@
 import { ProductModel } from './product.model';
-import { CreateProductDto } from './product.dto';
+import { CreateProductDto, UpdateProductDto } from './product.dto';
 import { faker } from '@faker-js/faker';
 
 type ProductId = string | number;
@@ -43,13 +43,17 @@ export const addProduct = (data: CreateProductDto): ProductModel => {
   return newProduct;
 };
 
-export const updateProduct = (id: ProductId, data: object) => {
-  let product: ProductModel = findProductById(id);
-  const updatedProduct: ProductModel = {
-    ...product,
+export const updateProduct = (
+  id: ProductId,
+  data: UpdateProductDto
+): ProductModel => {
+  const index = productsList.findIndex((item) => item.id == id);
+  const productToChange = productsList[index];
+  const UpdatedProduct = (productsList[index] = {
+    ...productToChange,
     ...data,
-  };
-  product = updatedProduct;
+  });
+  return UpdatedProduct;
 };
 
 export const deleteProduct = (id: ProductId) => {

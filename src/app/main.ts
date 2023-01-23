@@ -1,6 +1,10 @@
 import { usersList, addUser, calcUsersPoints } from './users/user.services';
 import { ROLES } from './users/user.model';
-import { addProduct, productsList } from './product/product.services';
+import {
+  addProduct,
+  productsList,
+  updateProduct,
+} from './product/product.services';
 import { faker } from '@faker-js/faker';
 
 for (let index = 0; index < 3; index++) {
@@ -25,6 +29,11 @@ for (let i = 0; i < 3; i++) {
   });
 }
 const res = calcUsersPoints(usersList);
+
+updateProduct(productsList[0].id, {
+  name: 'Producto updateado :)',
+  stock: 2333,
+});
 
 console.log('usersList: ', usersList);
 console.log('Total de puntos: ', res);
