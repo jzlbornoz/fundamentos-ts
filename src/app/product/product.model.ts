@@ -9,4 +9,5 @@ export interface ProductModel extends BaseModel {
   stock: number;
   sizes?: Sizes;
   category: CategoryModel;
+  tags: string[];
 }

@@ -2,7 +2,7 @@ import { ProductModel } from './product.model';
 import { CreateProductDto, UpdateProductDto } from './product.dto';
 import { faker } from '@faker-js/faker';
 
-type ProductId = string | number;
+type ProductId = ProductModel['id'];
 
 export const productsList: ProductModel[] = [];
 

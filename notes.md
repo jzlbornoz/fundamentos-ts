@@ -173,3 +173,17 @@ interface InterfaceName extends Readonly<Interface> {
 
 type TypeName = Readonly<TypeOrInterface>;
 ```
+
+### ReadonlyArray
+
+- Este tipo de dato es un array, pero la principal diferencia con los arrays “normales” es que no existen ninguno de los métodos de mutación, tales como pop, push, shift, etc.
+
+```
+const variabeName: ReadonlyArray<dataType> = [value];
+// ----
+
+
+interface FindProductDto extends Readonly<Partial<Omit<ProductModel, 'tags'>>> {
+  readonly tags: ReadonlyArray<string>;
+}
+```

@@ -26,6 +26,7 @@ for (let i = 0; i < 3; i++) {
     categoryId: faker.datatype.uuid(),
     userId: faker.datatype.uuid(),
     sizes: 'S',
+    tags: faker.datatype.array.arguments(),
   });
 }
 const res = calcUsersPoints(usersList);

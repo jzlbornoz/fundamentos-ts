@@ -11,6 +11,8 @@ interface CreateProductDto
 
 interface UpdateProductDto extends Partial<CreateProductDto> {}
 
-interface FindProductDto extends Readonly<Partial<ProductModel>> {}
+interface FindProductDto extends Readonly<Partial<Omit<ProductModel, 'tags'>>> {
+  readonly tags: ReadonlyArray<string>;
+}
 
-export { CreateProductDto, UpdateProductDto };
+export { CreateProductDto, UpdateProductDto, FindProductDto };
