@@ -1,4 +1,4 @@
-class MyDate {
+class MyClass {
   year: number;
   month: number;
   day: number;
@@ -9,6 +9,6 @@ class MyDate {
   }
 }
 
-const date = new MyDate(1999, 1, 23);
+const instance = new MyClass(1999, 1, 23);
 
-console.log(date);
+console.log(instance);
