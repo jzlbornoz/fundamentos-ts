@@ -251,3 +251,63 @@ class MyDate {
   }
 }
 ```
+
+## Public Access
+
+-Por defecto, todas las propiedades y métodos son públicos pero si queremos aclarar en nuestro código el alcance de los mismos podemos utilizar la palabra reservada `public`.
+
+```
+class nameClass {
+		public parameter1: dataType;
+		constructor (parameters) { statements }
+
+		public method (parameters): dataType { statements }
+}
+```
+
+## Private Access
+
+- Con esta palabra reservada `private` estamos restringiendo el acceso de nuestros parámetros y métodos, solo podrán ser accedidos o modificados dentro de la clase.
+
+```
+class nameClass {
+		private parameter1: dataType;
+		constructor (parameters) { statements }
+
+		private method (parameters): dataType { statements }
+};
+
+//
+
+class nameClass {
+		 #parameter1: dataType;
+		constructor (parameters) { statements }
+
+		#method (parameters): dataType { statements }
+};
+
+```
+
+## Constructor
+
+- Es el constructor en el que construimos la instancia y mandamos los parámetros por defecto por el cual queremos que se inicialice esa instancia a un objeto.
+
+```
+class ClassName {
+		constructor (
+				scope property1: dataType,
+				scope propertyN: dataType
+		) {
+				statements
+		}
+}
+
+// ---
+
+export class MyDate {
+    constructor (
+        public year: number = 1993,
+        public month: number = 7,
+        private day: number = 3
+    ) {}
+```
