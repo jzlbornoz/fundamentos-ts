@@ -391,3 +391,25 @@ super([arguments]);
 // llama cualquier otro método del objeto padre.
 super.functionOnParent([arguments]);
 ```
+
+#### Protected Access
+
+- Básicamente, es la forma de heredar propiedades y métodos. Es similar a como funciona una propiedad o método privado, pero nos permite realizar herencia.
+
+```
+class FatherClass {
+	constructor (
+		protected property1: dataType,
+		propertyN: dataType
+	) {
+		statemenst
+	}
+}
+
+class ChildClass extends FatherClass {
+		constructor (properties and Inheritedproperties) {
+			super(Inheritedproperties)
+			statemenst
+		}
+}
+```
