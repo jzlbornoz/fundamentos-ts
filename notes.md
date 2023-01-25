@@ -356,3 +356,38 @@ set month(value: number) {
     }
   }
 ```
+
+### Inheritance
+
+- Como su palabra lo dice, las propiedades y métodos de una clase son heredadas por otra para evitar la redundancia de código en nuestro proyecto
+
+```
+class FatherClass {
+	constructor (properties) {
+		statemenst
+	}
+
+	MethodsFather () { ... }
+}
+
+class ChildClass extends FatherClass {
+		constructor (properties) {
+			super(properties)
+			statemenst
+		}
+
+		MethodsChild () { ... }
+}
+```
+
+#### Super()
+
+- Es una palabra reservada para llamar las propiedades y métodos de la clase padre.
+
+```
+// llama al método constructor del objeto padre.
+super([arguments]);
+
+// llama cualquier otro método del objeto padre.
+super.functionOnParent([arguments]);
+```
