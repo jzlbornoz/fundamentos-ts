@@ -252,7 +252,7 @@ class MyDate {
 }
 ```
 
-## Public Access
+### Public Access
 
 -Por defecto, todas las propiedades y métodos son públicos pero si queremos aclarar en nuestro código el alcance de los mismos podemos utilizar la palabra reservada `public`.
 
@@ -265,7 +265,7 @@ class nameClass {
 }
 ```
 
-## Private Access
+### Private Access
 
 - Con esta palabra reservada `private` estamos restringiendo el acceso de nuestros parámetros y métodos, solo podrán ser accedidos o modificados dentro de la clase.
 
@@ -288,7 +288,7 @@ class nameClass {
 
 ```
 
-## Constructor
+### Constructor
 
 - Es el constructor en el que construimos la instancia y mandamos los parámetros por defecto por el cual queremos que se inicialice esa instancia a un objeto.
 
@@ -310,4 +310,49 @@ export class MyDate {
         public month: number = 7,
         private day: number = 3
     ) {}
+```
+
+### Getters
+
+- Los getters permiten acceder a una propiedad de alcance privado, se pueden obtener los datos de esa propiedad, de manera inmutable, es decir que no se pueden modificar.
+- Se obtienen como si fuera una propiedad mas de la instancia, y por definicion todos los getters deben retornar algo.
+
+```
+  get isLeapYear(): boolean {
+    if (this.year % 400 === 0) return true;
+    if (this.year % 100 === 0) return false;
+    return this.year % 4 === 0;
+  }
+
+  get day() {
+    return this.#day;
+  }
+```
+
+### Setters
+
+- Es parecido a un get, solo que este no retorna nada, es un método void, pero no hace falta colocarle lo que retorna, ya que va a dar error.
+
+- A set lo podemos usar para tener reglas de modificación para nuestros parámetros.
+
+```
+class ClassName {
+		constructor () {
+				statements
+		}
+
+		set methodName () {
+				statements
+		}
+}
+
+// ---
+
+set month(value: number) {
+    if (value >= 1 && value <= 12) {
+      this.#month = value;
+    } else {
+      throw new Error('month out of range');
+    }
+  }
 ```

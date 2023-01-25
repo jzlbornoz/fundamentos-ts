@@ -1,12 +1,9 @@
 class MyDate {
-  year: number;
-  month: number;
-  day: number;
-  constructor(y: number, m: number, d: number) {
-    this.year = y;
-    this.month = m;
-    this.day = d;
-  }
+  constructor(
+    private year: number,
+    private month: number,
+    private day: number
+  ) {}
   printDate(): string {
     return `${this.year}/${this.month}/${this.day}`;
   }
@@ -31,12 +28,3 @@ class MyDate {
     return `${this.year}/${this.month}/${this.day}`;
   }
 }
-
-const date = new MyDate(2022, 1, 1);
-
-console.log(date.printDate());
-
-console.log(date.addDate(12, 'DD'));
-console.log(date.addDate(20, 'DD'));
-console.log(date.addDate(11, 'MM'));
-console.log(date.addDate(28, 'DD'));
