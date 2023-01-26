@@ -428,3 +428,28 @@ class MyMath {
 }
 
 ```
+
+### Interfaces en Clasess
+
+- Las interfaces permiten typar los atributos y metodos de una clase, funcionan como unos contratos.
+- En este ambito no se puede utilizar encapsulamiento, es decir, todos los atributos y metodos son publicos.
+
+#### Implementacion
+
+- Cumple la misma sintaxis que se utiliza para la herencia, pero `emplements` no es una herencia, es un contrato que nos indica los parametros que se deben complir en nuestras clases. Este contratos aplica tanto para propiedades como para metodos.
+
+```
+interface NameInterface {
+	statements
+}
+
+class NameClass implements NameInterface {
+	constructor (
+		propertiesOfInterface
+	) {
+		statements
+	}
+
+	methodOfInterface (): dataType { statements }
+}
+```
