@@ -413,3 +413,18 @@ class ChildClass extends FatherClass {
 		}
 }
 ```
+
+### Static
+
+- `static` define que el metodo o propiedad puede ser accedido sin la necesidad de una instancia. Por ejemplo .Math
+
+```
+class MyMath {
+  static readonly PI: number = 3.1415;
+
+  static max(...numbers: number[]): number {
+    return numbers.reduce((max, item) => (max >= item ? max : item));
+  }
+}
+
+```
