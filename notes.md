@@ -453,3 +453,7 @@ class NameClass implements NameInterface {
 	methodOfInterface (): dataType { statements }
 }
 ```
+
+### Abstract Class
+
+- Restringe la creacion de instancia de la clase base.
