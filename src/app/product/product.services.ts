@@ -5,56 +5,65 @@ import axios from 'axios';
 
 type ProductId = ProductModel['id'];
 
-export const productsList: ProductModel[] = [];
+class ProductMemoryService {
+  private productsList: ProductModel[] = [];
 
-export async function getProducts(): Promise<ProductModel[]> {
-  const { data } = await axios.get<ProductModel[]>(
-    'https://api.escuelajs.co/api/v1/products'
-  );
-  return data;
-}
-
-export const findProductById = (id: ProductId) => {
-  const productIndex: number = productsList.findIndex((item) => item.id == id);
-  if (productIndex == -1) {
-    throw new Error('Producto no encotrado');
+  async get(): Promise<ProductModel[]> {
+    const { data } = await axios.get<ProductModel[]>(
+      'https://api.escuelajs.co/api/v1/products'
+    );
+    data.map((item) => this.productsList.push(item));
+    return this.productsList;
   }
-  const product: ProductModel = productsList[productIndex];
-  return product;
-};
 
-export const addProduct = (data: CreateProductDto): ProductModel => {
-  const newProduct: ProductModel = {
-    ...data,
-    id: 12,
-    createdAt: new Date(),
-    updateAt: new Date(),
-    category: {
-      id: data.categoryId,
-      name: faker.commerce.department(),
-      image: faker.image.sports(),
+  create(data: CreateProductDto): ProductModel {
+    const newProduct: ProductModel = {
+      ...data,
+      id: 12,
       createdAt: new Date(),
       updateAt: new Date(),
-    },
-  };
-  productsList.push(newProduct);
-  return newProduct;
-};
+      category: {
+        id: data.categoryId,
+        name: faker.commerce.department(),
+        image: faker.image.imageUrl(),
+        createdAt: new Date(),
+        updateAt: new Date(),
+      },
+    };
 
-export const updateProduct = (
-  id: ProductId,
-  data: UpdateProductDto
-): ProductModel => {
-  const index = productsList.findIndex((item) => item.id == id);
-  const productToChange = productsList[index];
-  const UpdatedProduct = (productsList[index] = {
-    ...productToChange,
-    ...data,
-  });
-  return UpdatedProduct;
-};
+    return this.add(newProduct);
+  }
 
-export const deleteProduct = (id: ProductId) => {
-  const product = productsList.findIndex((item) => item.id == id);
-  productsList.splice(product, 1);
-};
+  add(product: ProductModel): ProductModel {
+    this.productsList.push(product);
+    return product;
+  }
+
+  findById(id: ProductId) {
+    const productIndex: number = this.productsList.findIndex(
+      (item) => item.id == id
+    );
+    if (productIndex == -1) {
+      throw new Error('Producto no encotrado');
+    }
+    const product: ProductModel = this.productsList[productIndex];
+    return product;
+  }
+
+  updateProduct(id: ProductId, data: UpdateProductDto): ProductModel {
+    const index = this.productsList.findIndex((item) => item.id == id);
+    const productToChange = this.productsList[index];
+    const UpdatedProduct = (this.productsList[index] = {
+      ...productToChange,
+      ...data,
+    });
+    return UpdatedProduct;
+  }
+
+  deleteProduct(id: ProductId) {
+    const product = this.productsList.findIndex((item) => item.id == id);
+    this.productsList.splice(product, 1);
+  }
+}
+
+export { ProductMemoryService };

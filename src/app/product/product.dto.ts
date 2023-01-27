@@ -1,11 +1,12 @@
 import { ProductModel } from './product.model';
+import { CategoryModel } from '../category/category.model';
 
 interface CreateProductDto
   extends Omit<
     ProductModel,
     'id' | 'updateAt' | 'createdAt' | 'category' | 'user'
   > {
-  categoryId: number;
+  categoryId: CategoryModel['id'];
   userId: number | string;
 }
 
