@@ -526,3 +526,27 @@ const delay = (time: number) => {
     return myPromise;
   };
 ```
+
+### Tipado de respuestas http
+
+- Es importante poder tipar tanto nuestras funciones, ya sea inferidamente o explícitamente, como las variables que manejamos internamente dentro de ella.
+
+#### Aserción angle bracket
+
+- Axios nos permite tipar las peticiones que hacemos de la siguiente manera.
+
+```
+const { data } = axios.get<dataType>(URL);
+```
+
+#### Asercion con as
+
+- También podemos realizar el tipado por medio de aserción de tipos con as, pero lo ideal es hacerlo con el primer método.
+
+```
+async function getProductsAsync () {
+   const rta = await axios.get(URL);
+   const data = rta.data as Product[];
+   return data;
+}
+```

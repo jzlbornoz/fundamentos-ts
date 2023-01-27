@@ -5,7 +5,7 @@ interface CreateProductDto
     ProductModel,
     'id' | 'updateAt' | 'createdAt' | 'category' | 'user'
   > {
-  categoryId: number | string;
+  categoryId: number;
   userId: number | string;
 }
 

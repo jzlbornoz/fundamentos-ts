@@ -1,14 +1,18 @@
 import { ProductModel } from './product.model';
 import { CreateProductDto, UpdateProductDto } from './product.dto';
 import { faker } from '@faker-js/faker';
+import axios from 'axios';
 
 type ProductId = ProductModel['id'];
 
 export const productsList: ProductModel[] = [];
 
-export const getProducts = () => {
-  return productsList;
-};
+export async function getProducts(): Promise<ProductModel[]> {
+  const { data } = await axios.get<ProductModel[]>(
+    'https://api.escuelajs.co/api/v1/products'
+  );
+  return data;
+}
 
 export const findProductById = (id: ProductId) => {
   const productIndex: number = productsList.findIndex((item) => item.id == id);
@@ -22,19 +26,13 @@ export const findProductById = (id: ProductId) => {
 export const addProduct = (data: CreateProductDto): ProductModel => {
   const newProduct: ProductModel = {
     ...data,
-    id: faker.datatype.uuid(),
+    id: 12,
     createdAt: new Date(),
     updateAt: new Date(),
     category: {
       id: data.categoryId,
       name: faker.commerce.department(),
-      createdAt: new Date(),
-      updateAt: new Date(),
-    },
-    user: {
-      id: data.userId,
-      userName: faker.name.fullName(),
-      password: faker.internet.password(),
+      image: faker.image.sports(),
       createdAt: new Date(),
       updateAt: new Date(),
     },
