@@ -470,4 +470,59 @@ Koko.woof(2);
 ```
 
 ### Singleton: Private Constructor
-- 
+
+- Singleton nos previene crear múltiples instancias de una clase.
+- Esto es muy usado en Arquitectura de Software, pues nos ayuda a ahorrar uso de memoria.
+
+```
+export class MyService {
+  static instance: MyService | null = null;
+
+  private constructor(private name: string, private id: number) {}
+
+  getName() {
+    return this.name;
+  }
+
+  static create(name: string, id: number) {
+    // recibe los mismos parametros del constructor.
+    if (MyService.instance === null) {
+      console.log('Se crea la instancia, una sola vez');
+      MyService.instance = new MyService(name, id);
+    }
+    return MyService.instance;
+  }
+}
+
+const myService1 = MyService.create('service1', 12);
+console.log(myService1.getName());
+
+const service2 = MyService.create('service2', 23);
+console.log(service2.getName());
+
+console.log(myService1 === service2);
+
+```
+
+## Async
+
+- Se puede correr promesas y código asíncronos con TypeScript de la misma forma que lo haríamos con JavaScript.
+
+### Promises
+
+- En caso de no colocar el tipo de dato de retorno de nuestra funcion asincrona, TypeScript va a inferir que es una promesa, pero no sabra que tipo de dato retorna dicha promesa.
+
+```
+const variableName = new Promese<dataType>(...);
+```
+
+```
+const delay = (time: number) => {
+    const myPromise = new Promise<string>((resolve) => {
+      setTimeout(() => {
+        resolve('hola mundo');
+      }, time);
+    });
+    return myPromise;
+  };
+```
