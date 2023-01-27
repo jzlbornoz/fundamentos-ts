@@ -8,11 +8,7 @@ type ProductId = ProductModel['id'];
 class ProductMemoryService {
   private productsList: ProductModel[] = [];
 
-  async get(): Promise<ProductModel[]> {
-    const { data } = await axios.get<ProductModel[]>(
-      'https://api.escuelajs.co/api/v1/products'
-    );
-    data.map((item) => this.productsList.push(item));
+  get() {
     return this.productsList;
   }
 
@@ -50,7 +46,7 @@ class ProductMemoryService {
     return product;
   }
 
-  updateProduct(id: ProductId, data: UpdateProductDto): ProductModel {
+  update(id: ProductId, data: UpdateProductDto): ProductModel {
     const index = this.productsList.findIndex((item) => item.id == id);
     const productToChange = this.productsList[index];
     const UpdatedProduct = (this.productsList[index] = {
