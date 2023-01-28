@@ -15,7 +15,7 @@ const productHttpService = new ProductHttpService();
     title: 'Product Nuevo :)',
     price: 89,
   });
-  console.log('ProductList Http Updated', await productHttpService.getAll());
+  console.log('ProductList Http Updated', await productHttpService.getAll(4));
 })();
 
 console.log('----'.repeat(16));

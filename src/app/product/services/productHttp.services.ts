@@ -6,7 +6,13 @@ import { CreateProductDto, UpdateProductDto } from '../product.dto';
 class ProductHttpService implements ProductServiceModel {
   private url = 'https://api.escuelajs.co/api/v1/products';
 
-  async getAll() {
+  async getAll(limit?: number) {
+    if (limit) {
+      const { data } = await axios.get<ProductModel[]>(
+        `${this.url}?limit=${limit}&offset=0`
+      );
+      return data;
+    }
     const { data } = await axios.get<ProductModel[]>(this.url);
     return data;
   }
