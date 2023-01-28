@@ -2,7 +2,23 @@ import { ProductHttpService } from './product/services/productHttp.services';
 import { ProductMemoryService } from './product/services/productMemory.services';
 
 const productMemoryService = new ProductMemoryService();
+const productHttpService = new ProductHttpService();
 
+(async () => {
+  console.log(
+    'ProductList Http',
+    (await productHttpService.getAll()).map((item) => item.price)
+  );
+  console.log('----'.repeat(16));
+  const productList = await productHttpService.getAll();
+  productHttpService.update(productList[0].id, {
+    title: 'Product Nuevo :)',
+    price: 89,
+  });
+  console.log('ProductList Http Updated', await productHttpService.getAll());
+})();
+
+console.log('----'.repeat(16));
 for (let i = 0; i < 3; i++) {
   productMemoryService.create({
     title: `new product ${i}`,
@@ -13,15 +29,4 @@ for (let i = 0; i < 3; i++) {
     images: [],
   });
 }
-const productList = productMemoryService.getAll();
-console.log(productList);
-const product = productList[0];
-
-productMemoryService.update(product.id, {
-  title: 'producto updetead',
-});
-
-console.log(productMemoryService.getAll());
-
-const productHttpService = new ProductHttpService();
-console.log(productHttpService.getAll());
+console.log('ProductsList in Memory', productMemoryService.getAll());
