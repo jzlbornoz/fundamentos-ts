@@ -550,3 +550,35 @@ async function getProductsAsync () {
    return data;
 }
 ```
+
+## Generics
+
+- Podemos entender los genéricos como una especie de "plantilla" de código, mediante la cual podemos aplicar un tipo de datos determinado a varios puntos de nuestro código. Sirven para aprovechar código, sin tener que duplicarlo por causa de cambios de tipo y evitando la necesidad de usar el tipo "any".
+- Un genérico puede ser cualquier tipo, incluso una clase o un array
+
+```
+import { Dog } from '../POO/inheritance';
+// function getValue(value: unknown ) {
+//   return value;
+// }
+
+// function getValue(value: string | number ) {
+//   return value;
+// }
+
+function getValue<T>(value: T) {
+  const array: T[] = [value];
+  return value;
+}
+
+getValue<number>(12).toFixed();
+getValue<string>('12').toLowerCase();
+getValue<number[]>([11, 1, 1]).forEach;
+const fifi = new Dog('fifi', 'nico');
+
+//class
+getValue<Dog>(fifi).greeting;
+// Promise<boolean>
+// axios.get<string[]>
+
+```
