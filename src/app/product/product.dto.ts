@@ -1,4 +1,4 @@
-import { ProductModel } from './product.model';
+import { ProductModel } from './models/product.model';
 import { CategoryModel } from '../category/category.model';
 
 interface CreateProductDto

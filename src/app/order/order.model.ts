@@ -1,5 +1,5 @@
 import { BaseModel } from '../baseModel';
-import { ProductModel } from '../product/product.model';
+import { ProductModel } from '../product/models/product.model';
 import { UserModel } from '../users/user.model';
 
 export interface OrderModel extends BaseModel {

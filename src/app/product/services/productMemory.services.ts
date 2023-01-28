@@ -1,14 +1,14 @@
-import { ProductModel } from './product.model';
-import { CreateProductDto, UpdateProductDto } from './product.dto';
+import { ProductModel } from '../models/product.model';
+import { CreateProductDto, UpdateProductDto } from '../product.dto';
 import { faker } from '@faker-js/faker';
-import axios from 'axios';
+import { ProductServiceModel } from '../models/productService.model';
 
 type ProductId = ProductModel['id'];
 
-class ProductMemoryService {
+class ProductMemoryService implements ProductServiceModel{
   private productsList: ProductModel[] = [];
 
-  get() {
+  getAll(): ProductModel[] {
     return this.productsList;
   }
 
@@ -27,15 +27,11 @@ class ProductMemoryService {
       },
     };
 
-    return this.add(newProduct);
+    this.productsList.push(newProduct);
+    return newProduct;
   }
 
-  add(product: ProductModel): ProductModel {
-    this.productsList.push(product);
-    return product;
-  }
-
-  findById(id: ProductId) {
+  findById(id: ProductId): ProductModel {
     const productIndex: number = this.productsList.findIndex(
       (item) => item.id == id
     );
@@ -56,7 +52,7 @@ class ProductMemoryService {
     return UpdatedProduct;
   }
 
-  deleteProduct(id: ProductId) {
+  delete(id: ProductId) {
     const product = this.productsList.findIndex((item) => item.id == id);
     this.productsList.splice(product, 1);
   }
