@@ -582,3 +582,8 @@ getValue<Dog>(fifi).greeting;
 // axios.get<string[]>
 
 ```
+- T - Tipo
+- E - Elemento (elementos en una colección)
+- K - Llave
+- N - Número
+- V - Valor
