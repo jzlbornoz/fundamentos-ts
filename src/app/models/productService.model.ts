@@ -1,4 +1,4 @@
-import { CreateProductDto, UpdateProductDto } from '../product.dto';
+import { CreateProductDto, UpdateProductDto } from '../dto/product.dto';
 import { ProductModel } from './product.model';
 
 export interface ProductServiceModel {

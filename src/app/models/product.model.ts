@@ -1,5 +1,5 @@
-import { BaseModel } from '../../baseModel';
-import { CategoryModel } from '../../category/category.model';
+import { BaseModel } from '../baseModel';
+import { CategoryModel } from './category.model';
 
 export interface ProductModel extends BaseModel{
   title:       string;

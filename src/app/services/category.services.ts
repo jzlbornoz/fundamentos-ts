@@ -1,4 +1,4 @@
-import { CategoryModel } from './category.model';
+import { CategoryModel } from '../models/category.model';
 
 const categoryList: CategoryModel[] = [];
 

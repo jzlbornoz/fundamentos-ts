@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { ProductModel } from '../models/product.model';
-import { ProductServiceModel } from '../models/productService.model';
-import { CreateProductDto, UpdateProductDto } from '../product.dto';
+import { ProductModel } from '../../models/product.model';
+import { ProductServiceModel } from '../../models/productService.model';
+import { CreateProductDto, UpdateProductDto } from '../../dto/product.dto';
 
 class ProductHttpService implements ProductServiceModel {
   private url = 'https://api.escuelajs.co/api/v1/products';

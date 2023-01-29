@@ -1,5 +1,5 @@
-import { ProductModel } from './models/product.model';
-import { CategoryModel } from '../category/category.model';
+import { ProductModel } from '../models/product.model';
+import { CategoryModel } from '../models/category.model';
 
 interface CreateProductDto
   extends Omit<

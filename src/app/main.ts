@@ -1,5 +1,5 @@
-import { ProductHttpService } from './product/services/productHttp.services';
-import { ProductMemoryService } from './product/services/productMemory.services';
+import { ProductHttpService } from './services/products/productHttp.services';
+import { ProductMemoryService } from './services/products/productMemory.services';
 
 const productMemoryService = new ProductMemoryService();
 const productHttpService = new ProductHttpService();

@@ -1,4 +1,4 @@
-import { UserModel } from './user.model';
+import { UserModel } from '../models/user.model';
 
 const usersList: UserModel[] = [];
 

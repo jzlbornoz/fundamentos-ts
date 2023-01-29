@@ -1,7 +1,7 @@
-import { ProductModel } from '../models/product.model';
-import { CreateProductDto, UpdateProductDto } from '../product.dto';
+import { ProductModel } from '../../models/product.model';
+import { CreateProductDto, UpdateProductDto } from '../../dto/product.dto';
 import { faker } from '@faker-js/faker';
-import { ProductServiceModel } from '../models/productService.model';
+import { ProductServiceModel } from '../../models/productService.model';
 
 type ProductId = ProductModel['id'];
 
